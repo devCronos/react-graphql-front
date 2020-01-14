@@ -28,16 +28,33 @@ const CREATE_ITEM_MUTATION = gql`
 
 class CreateItem extends Component {
     state = {
-        title: 'd',
-        description: 'e',
-        image: 'ewq',
-        largeImage: 'ewqeqweqw',
-        price: 3333
+        title: 'Title',
+        description: 'lorem ipsum dolor something',
+        image: '',
+        largeImage: '',
+        price: 1000
     }
     handleChange = (e) => {
         const {name, type, value} = e.target;
         const val = type === 'number' ? parseFloat(value):value;
         this.setState({ [name]: val});
+    }
+
+    uploadFile = async e => {
+        const files = e.target.files;
+        const data = new FormData();
+        data.append('file', files[0]);
+        data.append('upload_preset', 'sickfits');
+
+        const res = await fetch('https://api.cloudinary.com/v1_1/dxycrh6iw/image/upload', {
+            method: 'POST',
+            body: data
+        });
+        const file = await res.json();
+        this.setState({
+            image: file.secure_url,
+            largeImage: file.eager[0].secure_url
+        })
     }
 
     render() {
@@ -78,6 +95,14 @@ class CreateItem extends Component {
                                 value={this.state.description}
                                 onChange={this.handleChange}
                                 required />
+                            </label>
+                            <label htmlFor="file">
+                                Upload an image
+                                <input type="file" id="file" name="file" placeholder="Upload an image" 
+                                
+                                onChange={this.uploadFile}
+                                required />
+                                {this.state.image && <img src={this.state.image} width="200" alt="Upload preview" />}
                             </label>
                             <button type="submit">Submit</button>
                         </fieldset>
