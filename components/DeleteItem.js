@@ -41,4 +41,4 @@ class DeleteItem extends Component {
     }
 }
 
-export default DeleteItem;
+export default DeleteItem;  
