@@ -449,7 +449,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./User */ "./components/User.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./User */ "./components/User.js");
 var _jsxFileName = "D:\\projects\\advanced-react-wesbos\\sick-fits\\frontend\\components\\Signout.js";
 
 
@@ -468,25 +470,29 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var SIGN_OUT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 
 var Signout = function Signout(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
     mutation: SIGN_OUT_MUTATION,
     refetchQueries: [{
-      query: _User__WEBPACK_IMPORTED_MODULE_3__["CURRENT_USER_QUERY"]
+      query: _User__WEBPACK_IMPORTED_MODULE_4__["CURRENT_USER_QUERY"]
     }],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: this
   }, function (signout) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: signout,
+      onClick: function onClick() {
+        signout();
+        next_router__WEBPACK_IMPORTED_MODULE_3___default.a.push("/signup");
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 18
       },
       __self: this
     }, "Sign Out");
@@ -550,7 +556,7 @@ var User = function User(props) {
   });
 };
 
-User.PropTypes = {
+User.propTypes = {
   children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (User);
