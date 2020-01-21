@@ -1,0 +1,40 @@
+[33mcommit 455f82072bd7fec2a8bc28230ea4d11e324b04e7[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Claudiu <claudiu.bargianu@gmail.com>
+Date:   Sat Jan 18 22:39:47 2020 +0200
+
+    added cart on server/cache with optimisticResponse delete
+    animation transition
+    refactored cart with adopt
+
+[33mcommit 0ee0478aae639e1853f0db0816bc6fe8a4afb54d[m
+Author: Claudiu <claudiu.bargianu@gmail.com>
+Date:   Thu Jan 16 18:41:23 2020 +0200
+
+    added password reset functionality + confirmation mail
+    gated pages for login
+    gated operations for permissions
+    added a permission manager page for admin
+
+[33mcommit 21736d1f180673f5675c40d8fc342f8470d1de00[m
+Author: Claudiu <claudiu.bargianu@gmail.com>
+Date:   Thu Jan 16 18:40:37 2020 +0200
+
+    added password reset functionality + confirmation mail
+
+[33mcommit c29a54fe1124cfbe350d0a9464c150455c2ac7a4[m
+Author: Claudiu <claudiu.bargianu@gmail.com>
+Date:   Wed Jan 15 17:51:27 2020 +0200
+
+    added auth and jwt token sign in
+
+[33mcommit 271aeba78e5e6e6af146d4bcfcae390ef09e26c7[m
+Author: Claudiu <claudiu.bargianu@gmail.com>
+Date:   Tue Jan 14 20:31:05 2020 +0200
+
+    completed CRUD for items and added pagination
+
+[33mcommit 36cd976ba17f6de7c9452f55bf2e9d6c6402a884[m
+Author: Claudiu <claudiu.bargianu@gmail.com>
+Date:   Mon Jan 13 20:55:00 2020 +0200
+
+    mutations work
