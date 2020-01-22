@@ -14,7 +14,7 @@ const ADD_TO_CART_MUTATION = gql`
 
 class AddToCart extends React.Component {
     render() {
-        const {id} = this.props
+        const {id} = this.props 
         return (
             <Mutation mutation={ADD_TO_CART_MUTATION}
             variables={{id: id}}
@@ -28,3 +28,4 @@ class AddToCart extends React.Component {
 }
 
 export default AddToCart;
+export {ADD_TO_CART_MUTATION};

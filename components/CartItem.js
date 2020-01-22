@@ -19,7 +19,7 @@ const CartItemStyles = styled.li`
   }
 `;
 
-const CarrtItem = ({cartItem }) => {
+const CartItem = ({cartItem }) => {
     // check if item exists
     if(!cartItem.item) return <CartItemStyles><p>This item has been removed</p><RemoveFromCart id={cartItem.id} /></CartItemStyles>
     return(
@@ -40,8 +40,8 @@ const CarrtItem = ({cartItem }) => {
 
     )
 }
-CarrtItem.propTypes = {
+CartItem.propTypes = {
     cartItem: PropTypes.object.isRequired
 }
 
-export default CarrtItem;
+export default CartItem;
