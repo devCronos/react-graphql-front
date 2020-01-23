@@ -15,9 +15,16 @@ class Item extends Component {
 
     render() {
         const {item} = this.props;
+        item.title = item.title.charAt(0).toUpperCase() + item.title.slice(1);
         return (
             <ItemStyles>
-                {item.image && <img src={item.image} alt={item.title} />}
+                {item.image && <Link href={{
+                        pathname: '/item',
+                        query: {id:item.id}
+                    }}>
+                        <img src={item.image} alt={item.title} />
+                    </Link>
+                    }
                 <Title>
                     <Link href={{
                         pathname: '/item',

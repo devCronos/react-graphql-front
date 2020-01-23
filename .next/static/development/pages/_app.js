@@ -175,7 +175,7 @@ var Cart = function Cart() {
         lineNumber: 52
       },
       __self: this
-    }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_11__["default"])(Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_10__["default"])(me.cart))), me.cart.length && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TakeMyMoney__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_11__["default"])(Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_10__["default"])(me.cart))), me.cart.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TakeMyMoney__WEBPACK_IMPORTED_MODULE_12__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 54
@@ -299,7 +299,7 @@ var CartItemStyles = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].l
   return props.theme.lightgrey;
 });
 
-var CarrtItem = function CarrtItem(_ref) {
+var CartItem = function CartItem(_ref) {
   var cartItem = _ref.cartItem;
   // check if item exists
   if (!cartItem.item) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CartItemStyles, {
@@ -372,10 +372,10 @@ var CarrtItem = function CarrtItem(_ref) {
   }));
 };
 
-CarrtItem.propTypes = {
+CartItem.propTypes = {
   cartItem: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (CarrtItem);
+/* harmony default export */ __webpack_exports__["default"] = (CartItem);
 
 /***/ }),
 
@@ -696,6 +696,7 @@ var Nav = function Nav(props) {
   }, function (_ref) {
     var me = _ref.data.me;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_NavStyles__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      "data-test": "nav",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 12
@@ -741,7 +742,7 @@ var Nav = function Nav(props) {
       },
       __self: this
     }, "Orders")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/me",
+      href: "/permissions",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 24
@@ -938,11 +939,12 @@ function (_Component) {
 /*!**************************************!*\
   !*** ./components/RemoveFromCart.js ***!
   \**************************************/
-/*! exports provided: default */
+/*! exports provided: default, REMOVE_FROM_CART_MUTATION */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_FROM_CART_MUTATION", function() { return REMOVE_FROM_CART_MUTATION; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
@@ -1090,6 +1092,7 @@ _defineProperty(RemoveFromCart, "propTypes", {
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (RemoveFromCart);
+
 
 /***/ }),
 
@@ -1422,11 +1425,12 @@ var Signout = function Signout(props) {
 /*!***********************************!*\
   !*** ./components/TakeMyMoney.js ***!
   \***********************************/
-/*! exports provided: default */
+/*! exports provided: default, CREATE_ORDER_MUTATION */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_ORDER_MUTATION", function() { return CREATE_ORDER_MUTATION; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -1576,7 +1580,9 @@ function (_React$Component) {
         },
         __self: this
       }, function (_ref2) {
-        var me = _ref2.data.me;
+        var me = _ref2.data.me,
+            loading = _ref2.loading;
+        if (loading) return null;
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["Mutation"], {
           mutation: CREATE_ORDER_MUTATION,
           refetchQueries: [{
@@ -1584,7 +1590,7 @@ function (_React$Component) {
           }],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 47
+            lineNumber: 49
           },
           __self: this
         }, function (createOrder) {
@@ -1601,7 +1607,7 @@ function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 50
+              lineNumber: 52
             },
             __self: this
           }, _this2.props.children, " ");
@@ -1614,6 +1620,7 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (TakeMyMoney);
+
 
 /***/ }),
 
@@ -1641,7 +1648,7 @@ var _jsxFileName = "D:\\projects\\advanced-react-wesbos\\sick-fits\\frontend\\co
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    query{\n        me{\n            id\n            email\n            name\n            permissions\n            cart {\n                id\n                quantity\n                item {\n                    id\n                    price\n                    image\n                    title\n                    description\n                }\n            }\n        }\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n    query{\n        me{\n            id\n            email\n            name\n            permissions\n            orders {\n                id\n            }\n            cart {\n                id\n                quantity\n                item {\n                    id\n                    price\n                    image\n                    title\n                    description\n                }\n            }\n        }\n    }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1662,7 +1669,7 @@ var User = function User(props) {
     query: CURRENT_USER_QUERY,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 31
     },
     __self: this
   }), function (payload) {
@@ -1832,15 +1839,17 @@ var Supreme = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h3.withC
 /*!*******************!*\
   !*** ./config.js ***!
   \*******************/
-/*! exports provided: endpoint, perPage */
+/*! exports provided: endpoint, prodEndpoint, perPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endpoint", function() { return endpoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prodEndpoint", function() { return prodEndpoint; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 // This is client side config only - don't put anything in here that shouldn't be public!
 var endpoint = "http://localhost:4444";
+var prodEndpoint = "https://sick-yoga-prod.herokuapp.com/";
 var perPage = 4;
 
 /***/ }),
