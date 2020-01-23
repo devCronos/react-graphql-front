@@ -9,9 +9,11 @@ const CartItemStyles = styled.li`
   border-bottom: 1px solid ${props => props.theme.lightgrey};
   display: grid;
   align-items: center;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr 0.7fr;
   img {
     margin-right: 10px;
+    max-height: 100px;
+    object-fit: cover;
   }
   h3,
   p {

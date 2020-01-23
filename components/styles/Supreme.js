@@ -7,7 +7,8 @@ const Supreme = styled.h3`
   padding: 4px 5px;
   transform: skew(-3deg);
   margin: 0;
-  font-size: 4rem;
+  font-size: 3rem;
+  line-height: 1.2;
 `;
 
 export default Supreme;
